@@ -59,3 +59,9 @@ tensorflow
 ```
 
 The general process flow for the machine learning models is to clean the data from individual datasets. Merge the data to gather the appropriate parameters for analysis. Assess whether binning or encoding is necessary, then process accordingly for the analysis. Split the data into testing and training sets for supervised learning. Apply to the ML model. Evaluate results both analytically and graphically. 
+
+--- 
+## Project Showcase 
+
+We will communicate findings to a webpage using Javascript, CSS and HTML. Our interactive dashboard will enable the user select injuries by parameters, such as; field type, surface type, location, and duration of play during the game. 
+
