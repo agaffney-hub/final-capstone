@@ -65,3 +65,6 @@ The general process flow for the machine learning models is to clean the data fr
 
 We will communicate findings to a webpage using Javascript, CSS and HTML. Our interactive dashboard will enable the user select injuries by parameters, such as; field type, surface type, location, and duration of play during the game. 
 
+![This is an image]()
+
+Presentation slides will be available via Google Slides: https://docs.google.com/presentation/d/1JuRKtG8ZdwiY1gHwosXbu1rs_UrsjU8sO4iqMHOnGEc/edit?usp=sharing
