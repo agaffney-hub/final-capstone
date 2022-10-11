@@ -1,4 +1,18 @@
-# final-capstone
+# final-capstone Topic:_____________
 
-For our class, we focused on data science and visualization and are making a final project capstone to be able to demonstrate our learning. 
-Our project is focusing on ___.
+## prepare :
+
+#### a skeleton for the PowerPoint and maybe use Flask App (Javascript/Css) to showcase.
+
+
+
+## Overview
+
+#### Reason why we selected this topic
+
+#### Description of our source of data
+
+## Results
+#### Questions we hope to answer with the data
+  
+## Summary
