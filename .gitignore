@@ -1,6 +1,7 @@
 # Folders to ignore
 NFL_Punt/
 NFL_Turf/
+README.md
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
