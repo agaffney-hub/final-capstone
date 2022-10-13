@@ -1,6 +1,3 @@
-# ignore README txt file 
-README.md
-README.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
