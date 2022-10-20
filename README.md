@@ -3,6 +3,18 @@
 #### *by* Amy Gaffney, Izzy Irazoque, Kevin Ytturalde, Vincent Fan, and Justin Papreck
 
 ---
+## Update for 10/19/22
+- Presentation: Information added to Google Slides with images for the Dashboard
+- Presentation: Visuals produced in both Python and Tableau from exploratory analysis and ML
+- Database: Integrated with the ML models using SQLAlchemy both for retrieval and storage of cleaned datasets for Tableau
+- Database: Joined 4 tables on SQL to be exported and used in the Punt Analytics analysis
+- GitHub: Was updated before all of the changes were lost. Will redo next week. 
+- Dashboard: Blueprint created - multiple page design, one for index, then Interactive Maps, Exploratory Graphs, Injury Stats, and ML
+- Dashboard: JS/html created, working rough draft 
+- Machine Learning: Supervised model for Injury Data using Random Forests, predictive models reaching 99% with only False positives, which is ideal for this analysis
+
+
+---
 ## Topic and Reason
 
 In recent years, more concern has grown over sustained injuries that impact the athletes lives long after their athletic career ends. The NFL is looking to identify what changes should be made to minimize the risk of player injury, while not completely altering America's favorite pastime. There are several types of injuries that are incurred - there are gross physiological injuries such as knee, foot, and ankle injuries, and there are also more subtle injuries such as concussions, which can have a much longer-lasting impact on the players, occasionally leading to personality changes and unfortanately, even suicide. It's clear that changes need to be made to address these concerns, but the conflicting view is that the NFL is a multi-billion dollar industry, generating a revenue of over 17 billion dollars in 2021 alone. While changes need to be made, they only impact a fraction of the players. In order to minimize the risk of all players, it's important for the NFL to maintain most of the features of the game if they can modify only certain aspects in order to better ensure the medical safety of their players.
@@ -29,9 +41,10 @@ The data sources are from two Kaggle Challenges:
 
 The first sets of data provide information on gross physiological injuries such as foot and knee injuries, whereas the second sets of data provide information regarding concussive injuries. It is likely that the conditions for each of these types of injuries are different, so this will involve a multi-step analysis to assess the parameters that have the highest impact on each type of injury and the severity of the injuries. 
 
-We hypothesize that there is a relationship between the field type, surface type, location, and duration of play during the game that impacts the type and and severity of the gross physiological injury. We also hypothesize that there is a relationship between the field type, surface, location, and duration of play during the game that influences the likeliness of occurrence of traumatic brain injuries on the field. 
+We hypothesize that there is a relationship between the field conditions, player position, time during the season, duration of play during the game, and location on the field that can predict the occurrence, type, and severity of lower body injury. We plan to show this with a predictive supervised machine learning model.
 
-We aim to find the features that have the greatest impact on each type of injury and design a predictive model using the combined datasets to provide a predictive model to both predict and classify whether there is and whay type of injury is sustained. 
+We also hypothesize that there is a relationship between the field conditions, player position, location, time within the season or game, as well as the impact of home/away games and the point distribution at the time of injury that correlates with the incidence of traumatic brain injuries. We will be using PCA and unsupervised machine learning with k-means and agglomerative clustering to analyze these relationships.  
+
 
 --- 
 ## Database Sample Data
@@ -47,8 +60,9 @@ The database selected for use with the organized data is PostgreSQL, which will 
 
 ![PuntAnalytics_DB](https://user-images.githubusercontent.com/33167541/195506911-01ae9c29-2574-40ec-a4f2-d26dd83e8eb5.png)
 
+For the Punt Analytics dataset, due to the number of different files that need to be connected and merged, using SQL to do this is much more efficient than doing so in python, particulary for exporting to Tableau. We were able to quickly join the 4 tables for export and cleaning. 
 
-We will be using SQL to make joins with the second dataset, as the multiple merges are much easier to perform and modify on SQL versus Python. For the time being, the data has been extracted from the database in .csv format for the preliminary ML analyses.
+![SQL_Punt_Join](https://user-images.githubusercontent.com/33167541/196871369-72a6b6c8-5946-4f94-85c7-b05084129882.png)
 
 
 --- 
@@ -56,11 +70,11 @@ We will be using SQL to make joins with the second dataset, as the multiple merg
 
 We will be using both unsupervised learning with PCA analysis to identify predictors of the injuries to prioritize the factors that do influence the groupings of injuries and removing those that do not have an impact. The Unsupervised analysis will utilize K-Means clustering and PCA. We will subsequently use supervised machine learning to create a predictive model that can predict which game parameters are likely to predict a specific type of injury and, if applicable, the severity of the injury. 
 
-The Machine Learning models that will be used will be Complement Naive Bayes, XG Boost, and Neural Networks. Complement Naive Bayes replies on a set of non-interdependent columns to calculate the probability of an item belonging to all classes, which is the ideal Naive Bayes model to use with extremely imbalanced data, which is what we are dealing with the a small subset of injuries among hundreds of thousands of non-injurious plays. Random Forests is an acceptable model for binary classification, but we want to look more into the ability to both classify and predict - the XG Boost is a gradient-boosted decision tree model, which allows for regression, classification, and ranking, allowing for much more flexibility and predictive power than the Random Forests tree model. 
+The Machine Learning models that will be used will be Random Forests and Neural Networks. Random Forests is an acceptable model for both binary and numerical classification. We were able to use Random Forests to make predictive models to predict whether an injury occurred, if it was severe, what body part was injured, and the duration of injury.  
 
   Finally, Deep Learning with Neural Networks is an excellent choice for analysis in this situation, as it can also be used for both binary classification as well as sorting into *n* possible outcomes. 
 
-For the sampling, because there is a very unbalanced dataset regarding positions on the field, we will most likely have to stratify the samples containing both information regarding the injury and non-injury plays. We will be using scikit-learn's test_train_split to stratify and split the data into training sets. The models will be trained, fit, and validated using the appropriate methods per machine learning model. 
+For the sampling, because there is a very unbalanced dataset regarding positions on the field, we will most likely have use random sampling to perform an undersampled datafram, and then stratify the samples containing both information regarding the injury and non-injury plays. We will be using scikit-learn's test_train_split to stratify and split the data into training sets. The models will be trained, fit, and validated using the appropriate methods per machine learning model. 
 
 To perform the data cleaning, we will be using the following libraries:
 ```
@@ -86,7 +100,6 @@ sklearn
 collections
 imblearn
 tensorflow
-xgboost
 ```
 
 To provide the visualizations and analysis:
@@ -94,7 +107,7 @@ To provide the visualizations and analysis:
 matplotlib
 hvplot
 plotly
-pymongo
+Tableau
 ```
 
 The general process flow for the machine learning models is:
@@ -110,7 +123,7 @@ From the outputs of the Machine Learning models and the exploratory analysis, gr
 
 
 ---
-## Provisional Machine Learning Model
+## Machine Learning Models
 
 ### Unsupervised Learning
 
@@ -172,9 +185,23 @@ The output parameter for the predictive test was the "IsInjured" column, where 0
 ![Naive_Bayes_Confusion](https://user-images.githubusercontent.com/33167541/195505857-6ca4b12a-c335-4664-b2e4-28637a2862ac.png)
 
 
-Futher development of the dataset is necessary to include the spatial parameters that should give more predictive capability, since we believe that the position on the field will have a great impact on the potential for injury. 
+Futher development of the dataset included the spatial parameters that should gave more predictive capabilityindicating the great impact on the potential for injury. Using these data with random sampling the non-injury data were reduced to achieve a 100:1 distribution from the 3000:1 distribution we started with. Once the spatial data were added, this dataset expanded substantially, making a big impact on processing. Each of the Random Forest models was able to predict with 99% accuracy, and few to no false negatives: 
 
-Additionally, there will be a Deep Learning model that is currently in development. 
+- Was there an injury?
+
+![RF_IsInjured](https://user-images.githubusercontent.com/33167541/196870316-d1da98c5-35fa-4d50-bf86-95e334c4e8a9.png)
+
+- Was there a severe injury?
+![RF_IsSevere](https://user-images.githubusercontent.com/33167541/196870375-b4c37c10-d2be-4226-a7e6-269a436f49cb.png)
+
+- What body part was injured? 
+![RF_InjuryType](https://user-images.githubusercontent.com/33167541/196870409-dc59d14f-e26d-4d09-a7a0-b78e7f48ac81.png)
+
+- How long was the player out? 
+![RF_InjuryDuration](https://user-images.githubusercontent.com/33167541/196870473-c93f4f22-a61b-40e5-82d9-7f2db68a9370.png)
+
+
+Because the initial analysis planned for a Deep Learning Model, which would accommodate more complex parameters, we fitted the data for a Neural Network analysis, taking in 16 inputs, passing through 2 hidden layers with 16, and then 8 nodes, predicting the four outcomes for injury types. This model achieved a 99.95% accuracy with only 2 epochs. 
 
 --- 
 ## Project Showcase 
