@@ -1,6 +1,7 @@
 # Folders to ignore
 NFL_Punt/
 NFL_Turf/
+config.py
 
 
 
