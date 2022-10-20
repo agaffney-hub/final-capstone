@@ -176,7 +176,6 @@ Futher development of the dataset is necessary to include the spatial parameters
 
 Additionally, there will be a Deep Learning model that is currently in development. 
 
-
 --- 
 ## Project Showcase 
 
