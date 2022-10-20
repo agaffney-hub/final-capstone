@@ -197,7 +197,7 @@ Anticipated Dashboard Features Include:
 #### Description of the webpage
 ###### The flip function is added on the image of Each part for summary 
 ###### Each part of our project's page is added in order to describe and present the results or analysis distinct and convenient.
-######## Tableau's review of story was linked to the specific webpage.
+###### Tableau's review of story was linked to the specific webpage.
 
 
 
