@@ -193,7 +193,15 @@ Anticipated Dashboard Features Include:
 <br><br><br>
 
 
->Website pre-view 
+## Website pre-view 
+#### The flip function is added on the image of Each part for summary 
+#### Each part of our project's page is added in order to describe and present the results or analysis distinct and convenient.
+#### Tableau's review of story was linked to the specific webpage.
+#### what need to keep doing 
+    1.connect database, machine learning and presentation on the specific webpage. 
+    2.add commit for each part.
 
-![This is image](https://github.com/agaffney-hub/final-capstone/blob/6e0bf6e16e95eda3e7e74385db135e42810fb877/Dashboard/Images/Screen%20Shot%202022-10-11%20at%2012.58.25%20AM.png)
+
+<img width="1271" alt="Screen Shot 2022-10-19 at 9 06 04 PM" src="https://user-images.githubusercontent.com/106010498/196854243-487f5eed-076e-4925-b1de-2356ec8b6c69.png">
+<img width="1274" alt="Screen Shot 2022-10-19 at 9 06 18 PM" src="https://user-images.githubusercontent.com/106010498/196854251-3f3c573b-4854-48c7-acb9-2d86422de40c.png">
 
