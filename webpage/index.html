@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NFL Injury Analysis</title>
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+
+
+
+<body class="bg-dark">
+    <div class="wrapper">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand" href="index.html">NFL Injury Analysis</a>
+        </nav>
+    </div>
+    <div class="jumbotron">
+        <h1 class="text-white">Topic_______</h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="/Users/fanfan/Desktop/final-capstone/static/images/body.jpg" usemap="#pickone" style="margin-right:auto;margin-left: auto;">
+                
+                <map name="pickone">
+                    <area shape="rect" coords="381,720,445,823" title="Ractangle" href="javascript:JavaScript_kneeFunction()" title="findthespot">
+                    <li onclick="kneeFunction()"><a href="#">knee - #click to show result#</a></li>
+                    </area>
+                </map>
+
+
+
+                <li onclick="kneeFunction()"><a href="#">knee - #click to show result#</a></li>   
+                <li onclick="ankleFunction()"><a href="#">ankle -#click to show result#</a></li>
+                <li onclick="etcFunction()"><a href="#">etc - click #click to show result# </a></li>
+                <li>knee</li>
+                <li>ankle</li>
+                <li>etc</li>
+             
+            </div>
+
+            <div class="col-md-8">
+            <h1 id="demo"></h1>
+                <script>
+                  function kneeFunction(){
+                  const collection = document.getElementsByTagName("li");
+                  document.getElementById("demo").innerHTML = collection[3].innerHTML;
+                  }
+                  </script>
+                  <script>
+                  function ankleFunction(){
+                  const collection = document.getElementsByTagName("li");
+                  document.getElementById("demo").innerHTML = collection[4].innerHTML;
+                  }
+                  </script>
+                  <script>
+                  function etcFunction(){
+                  const collection = document.getElementsByTagName("li");
+                  document.getElementById("demo").innerHTML = collection[5].innerHTML;
+                  }
+                  </script>
+                <p>
+                text
+                </p>
+            
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="static/js/data.js"></script>
+    <script src="static/js/app.js"></script>
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+‹ing sre="../img/img3.jpg" alt-"what will you choose!" usemap-"#ChoisesOfLife" style-"width: 800px; height: 532px; margin-right: auto;
+margin-left: auto;"›
+<map name-"ChoisesOfLife">
+‹area shape-"rec" coords-"42,231,229,400" href-"money.html">
