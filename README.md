@@ -194,15 +194,26 @@ Anticipated Dashboard Features Include:
 
 
 ## Website pre-view 
-#### The flip function is added on the image of Each part for summary 
-#### Each part of our project's page is added in order to describe and present the results or analysis distinct and convenient.
-#### Tableau's review of story was linked to the specific webpage.
-#### what need to keep doing 
-    1.connect database, machine learning and presentation on the specific webpage. 
-    2.add commit for each part.
+#### Description of the webpage
+###### The flip function is added on the image of Each part for summary 
+###### Each part of our project's page is added in order to describe and present the results or analysis distinct and convenient.
+######## Tableau's review of story was linked to the specific webpage.
+
 
 
 <img width="1271" alt="Screen Shot 2022-10-19 at 9 06 04 PM" src="https://user-images.githubusercontent.com/106010498/196854243-487f5eed-076e-4925-b1de-2356ec8b6c69.png">
 <img width="1274" alt="Screen Shot 2022-10-19 at 9 06 18 PM" src="https://user-images.githubusercontent.com/106010498/196854251-3f3c573b-4854-48c7-acb9-2d86422de40c.png">
 <img width="1256" alt="Screen Shot 2022-10-19 at 9 22 01 PM" src="https://user-images.githubusercontent.com/106010498/196855898-0732c4d4-690a-413d-8734-38ce6316b406.png">
 
+
+#### Interactive element
+###### embedcodeing was founded from the web version tableau and added it to the webpage for linked the result from tableau to our webpage
+<img width="951" alt="Screen Shot 2022-10-19 at 9 39 28 PM" src="https://user-images.githubusercontent.com/106010498/196858364-64e12e38-aeaf-49fa-8405-0356280c930d.png">
+<img width="1265" alt="Screen Shot 2022-10-19 at 9 39 37 PM" src="https://user-images.githubusercontent.com/106010498/196858373-dbfd6b41-0445-4ba3-ae1d-76351741dfab.png">
+
+
+
+
+#### what need to keep doing 
+    1.connect database, machine learning and presentation on the specific webpage. 
+    2.add commit for each part.
