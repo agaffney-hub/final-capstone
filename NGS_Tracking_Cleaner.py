@@ -1,5 +1,18 @@
-def NGS_Cleaner(fraction=0.01, random=42):
-    #This function Appends and Cleans the NGS Data
+def Tracking_Loader_Sampler(fraction = 1, random=42):
+    
+    # To call this, just set ngs = Tracking_Loader_Sampler(fraction=fraction)
+
+    # IMPORTANT: The default fraction is 1.0 - thus unless specified, 
+    # this WILL NOT sample the data, and it will import the full set of tables, 
+    # yielding a dataframe with about 60 million rows. 
+
+ 
+    # Feel Free to comment out parts of this function if you want to restrict  
+
+    # This function imports the ngs data and samples it to a fraction
+    # of the file's original size. The fraction can be adjusted as well as 
+    # the random state by assigning them in the function parameters
+    
     import pandas as pd
     import numpy as np
 
@@ -19,8 +32,10 @@ def NGS_Cleaner(fraction=0.01, random=42):
              'Event': 'str'}
 
     # Read the first csv file, append to that file
-    ngs_2016_pre = pd.read_csv('NFL_Punt/ngs-2016-pre.csv', dtype=dtypes)  # 1 million rows
-    ngs = ngs_2016_pre.sample(n=int(fraction*len(ngs_2016_pre)), random_state=random)
+    ngs_2016_pre = pd.read_csv(
+        'NFL_Punt/ngs-2016-pre.csv', dtype=dtypes)  # 1 million rows
+    ngs = ngs_2016_pre.sample(
+        n=int(fraction*len(ngs_2016_pre)), random_state=random)
     del ngs_2016_pre
 
     # The next process is to open the next csv, append to the df, then remove from memory before reading the next
@@ -80,25 +95,45 @@ def NGS_Cleaner(fraction=0.01, random=42):
     del ngs_2017_post
 
 
-    # Drop the unnecessary columns 
+    # Drop the unnecessary columns
+    # I don't know if you will the need Time or dis...
+    # Time: the time of play at the start, it should be set to zero at the start of each play
+    # dis: the distance traveled from the prior point
+    # Season_Year: this is adjusted for with the game weeks
+    # Event: most are NA, gives a string with play details - this may give 
+    # interesting info if you aggregate the full set, but to do that you would NOT want to sample the data first
     ngs.drop(columns=['Season_Year', 'Event', 'Time', 'dis'], inplace=True)
 
-    
-
-    # Clean the rows
+    # Remove NaN in necessary rows
     ngs = ngs.loc[ngs.GameKey.isna() == False]
     ngs = ngs.loc[ngs.PlayID.isna() == False]
     ngs = ngs.loc[ngs.GSISID.isna() == False]
 
-
     # Change the GSISID to Int type - it is currently float
     ngs.GSISID = ngs.GSISID.astype('int')
 
-    # Add the Game_Play and GamePlay with GSISID to the video review
-    ngs['Game_Play_ID'] = ngs[colspp].apply(lambda row: '-'.join(row.values.astype(str)), axis=1)
+    # Add the Game_Play and GamePlay with GSISID - this will create a unique identifier for the play by each player
+    ngs['Game_Play_ID'] = ngs[colspp].apply(
+        lambda row: '-'.join(row.values.astype(str)), axis=1)
 
+
+    # Create a new column that shows the player's Twist - the difference 
+    # between the angles that the player is running (dir) and face orientation while running (o)
+    ngs['Twist'] = abs(ngs.dir - ngs.o)
+
+
+
+    # You may not want to drop the GSISID in this case, but I think it 
+    # should be all of the x,y positions of the specific player during each play
     ngs.drop(columns=['GameKey', 'PlayID', 'GSISID'], inplace=True)
 
-
+    
+    # At this point, the Game_Play_ID should be the identifier per player per play
+    # Role was not analyzed in ML, but may be useful to look into 
+    # Game Day is Monday through Sunday - if you're going to use this, 
+    # you'll have to somehow scale it, since there are more games played on 
+    # Sundays than any other day, otherwise it becomes a strong predictor of injury 
 
     return ngs
+
+
