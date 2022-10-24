@@ -1,4 +1,3 @@
-
 -- DROP TABLE IF EXISTS FF_play_df CASCADE;
 -- DROP TABLE IF EXISTS FF_inj_df CASCADE;
 -- DROP TABLE IF EXISTS FF_plyr_df CASCADE;
@@ -22,7 +21,6 @@ CREATE TABLE FF_play_df (
 );
 
 
-
 CREATE TABLE FF_inj_df (
     playerkey INT,
     gameid VARCHAR(50),
@@ -36,7 +34,6 @@ CREATE TABLE FF_inj_df (
 	PRIMARY KEY (playkey),
 	FOREIGN KEY (playkey) REFERENCES FF_play_df(playkey)				 
 );
-
 
 
 CREATE TABLE FF_plyr_df (
