@@ -18,65 +18,67 @@ def NGS_Cleaner(fraction=0.01, random=42):
              'dir': 'float64',
              'Event': 'str'}
 
-    # Read the first csv file, append to that file
-    ngs_2016_pre = pd.read_csv('NFL_Punt/ngs-2016-pre.csv', dtype=dtypes)  # 1 million rows
-    ngs = ngs_2016_pre.sample(n=int(fraction*len(ngs_2016_pre)), random_state=random)
+   # Read the first csv file, append to that file
+    ngs_2016_pre = pd.read_csv(
+        'NFL_Punt/ngs-2016-pre.csv', dtype=dtypes)  # 1 million rows
+    ngs = ngs_2016_pre.sample(
+        n=int(fraction*len(ngs_2016_pre)), random_state=random)
     del ngs_2016_pre
 
     # The next process is to open the next csv, append to the df, then remove from memory before reading the next
     ngs_2016_early = pd.read_csv(
         'NFL_Punt/ngs-2016-reg-wk1-6.csv', dtype=dtypes)  # 8.7 million rows
     ngs = ngs.append(ngs_2016_early.sample(
-        n=int(fraction*len(ngs_2016_early))), random_state=random)
+        n=int(fraction*len(ngs_2016_early)), random_state=random))
     del ngs_2016_early
 
     ngs_2016_mid = pd.read_csv(
         'NFL_Punt/ngs-2016-reg-wk7-12.csv', dtype=dtypes)  # 8.4 million rows
     ngs = ngs.append(ngs_2016_mid.sample(
-        n=int(fraction*len(ngs_2016_mid))), random_state=random)
+        n=int(fraction*len(ngs_2016_mid)), random_state=random))
     del ngs_2016_mid
 
     ngs_2016_late = pd.read_csv(
         'NFL_Punt/ngs-2016-reg-wk13-17.csv', dtype=dtypes)  # 7.6 million rows
     ngs = ngs.append(ngs_2016_late.sample(
-        n=int(fraction*len(ngs_2016_late))), random_state=random)
+        n=int(fraction*len(ngs_2016_late)), random_state=random))
     del ngs_2016_late
 
     ngs_2016_post = pd.read_csv(
         'NFL_Punt/ngs-2016-post.csv', dtype=dtypes)  # 900,000 rows
     ngs = ngs.append(ngs_2016_post.sample(
-        n=int(fraction*len(ngs_2016_post))), random_state=random)
+        n=int(fraction*len(ngs_2016_post)), random_state=random))
     del ngs_2016_post
 
     # Continue with the 2017 files
     ngs_2017_pre = pd.read_csv(
         'NFL_Punt/ngs-2017-pre.csv', dtype=dtypes)  # 6.6 million rows
     ngs = ngs.append(ngs_2017_pre.sample(
-        n=int(fraction*len(ngs_2017_pre))), random_state=random)
+        n=int(fraction*len(ngs_2017_pre)), random_state=random))
     del ngs_2017_pre
 
     ngs_2017_early = pd.read_csv(
         'NFL_Punt/ngs-2017-reg-wk1-6.csv', dtype=dtypes)  # 9.4 million rows
     ngs = ngs.append(ngs_2017_early.sample(
-        n=int(fraction*len(ngs_2017_early))), random_state=random)
+        n=int(fraction*len(ngs_2017_early)), random_state=random))
     del ngs_2017_early
 
     ngs_2017_mid = pd.read_csv(
         'NFL_Punt/ngs-2017-reg-wk7-12.csv', dtype=dtypes)  # 8.6 million rows
     ngs = ngs.append(ngs_2017_mid.sample(
-        n=int(fraction*len(ngs_2017_mid))), random_state=random)
+        n=int(fraction*len(ngs_2017_mid)), random_state=random))
     del ngs_2017_mid
 
     ngs_2017_late = pd.read_csv(
         'NFL_Punt/ngs-2017-reg-wk13-17.csv', dtype=dtypes)  # 8.3 million rows
     ngs = ngs.append(ngs_2017_late.sample(
-        n=int(fraction*len(ngs_2017_late))), random_state=random)
+        n=int(fraction*len(ngs_2017_late)), random_state=random))
     del ngs_2017_late
 
     ngs_2017_post = pd.read_csv(
         'NFL_Punt/ngs-2017-post.csv', dtype=dtypes)  # 1 million rows
     ngs = ngs.append(ngs_2017_post.sample(
-        n=int(fraction*len(ngs_2017_post))), random_state=random)
+        n=int(fraction*len(ngs_2017_post)), random_state=random))
     del ngs_2017_post
 
 
