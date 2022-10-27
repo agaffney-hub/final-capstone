@@ -15,11 +15,11 @@
 
 -- 
 ## Update for 10/26/22
-- Presentation
-- Database
-- GitHub
-- Dashboard
-- Machine Learning
+- Presentation - most slides have been added and completed, just need to modify a few images to reflect the latest changes and results
+- Database - Database is functional and connected to machine learning analyses
+- GitHub - Mostly updated to reflect the recent findings. Will be modified in the next 2 days
+- Dashboard - Working website with most results integrated. Adding new tables from ML analysis
+- Machine Learning - Completed the Neural Network and RF analayses, further analyzing the Precision, a better indicator than accuracy for our model. Further developed neural network models to boost precision even further. 
 
 
 ---
