@@ -1,0 +1,10 @@
+,Test,Model,Accuracy,Precision,Recall
+0,Is Injured,Random Forest,0.9995,0.9743,0.9995
+0,Severe Injury,Random Forest,0.9998,0.9035,1.0
+0,Injured Foot,Random Forest,0.986,0.7894,1.0
+0,Injured Ankle,Random Forest,0.986,0.4261,0.9823
+0,Injured Foot,Random Forest,0.986,0.2745,0.9799
+0,Duration - Less than 1 Week,Random Forest,0.9977,0.6,1.0
+0,Duration - 1-4 Weeks,Random Forest,0.9977,0.3567,0.9995
+0,Duration - 4-6 Weeks,Random Forest,0.9977,0.5612,1.0
+0,Duration - Over 6 Weeks,Random Forest,0.9977,0.6375,1.0

@@ -25,6 +25,13 @@
 - NFL_Injury_Cleaning_Functions.py
 - Punt_Cleaner.py
 
+## Necessary Machine Learning Files: 
+- Review_Injury_Supervised_ML.ipynb - the random forest analysis with feature analysis
+- Review_Injury_Supervised_NN.ipynb - neural network model, improving the precision on the random forest model
+- Concussion_Analysis.ipynb - Unsupervised models for the concussion datasets
+- NeuralNetwork_Results.csv
+- RandomForest_Results.csv
+
 ## Necessary Visualization Files: 
 - Visuals_2.ipynb
 - Visuals_3.ipynb
@@ -60,23 +67,20 @@
 
 ### Supervised Injury
 - Show initial Model with crappy results
-    - Import from SQL
     - Show results
     - Explain changes to be made
 - Showcase final Model 
-    - Connect to SQL
     - Explain Changes made
     - Show results
     - Compare to unsupervised feature analysis
-    - Analyze
 
 ### Unsupervised Injury
 - Show findings from Unsupervised
     - Add one more Unsupervised injury analysis similar to the Concussion
 
-
 ### Unsupervised Concussion
 - Showcase final model
+    - Merge Tables in SQL
     - Import from SQL 
     - Show results
     - Compare to Injury data
