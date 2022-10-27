@@ -1,3 +1,5 @@
+For use in https://app.quickdatabasediagrams.com
+
 inj_df
 -
 playerkey int64 fk - play_df.playerkey
