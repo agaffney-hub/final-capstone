@@ -31,6 +31,25 @@ def column_capitalizer(df, df_name):
             'dm_m42': 'DM_M42'       
         }
 
+    elif df_name == 'punt':
+        columns= {
+            'gamekey': 'GameKey', 
+            'playid': 'PlayID', 
+            'gsisid': 'GSISID', 
+            'p_position': 'Position',
+            'prole': 'Role',
+            'season_type': 'Season_Type', 
+            'quarter': 'Quarter', 
+            'week': 'Week', 
+            'stadiumtype': 'StadiumType', 
+            'turf': 'Turf', 
+            'gameweather': 'Weather',
+            'temperature': 'Temperature', 
+            'score_home_visiting': 'Score_Home_Visiting'
+        }
+
+
+
     df = df.rename(columns=columns)
 
     return df

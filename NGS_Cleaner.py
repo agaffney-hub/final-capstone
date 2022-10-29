@@ -1,4 +1,4 @@
-def Merge_Cleaner(merged_ngs):
+def merge_cleaner(merged_ngs):
     #This function Appends and Cleans the NGS Data
     import pandas as pd
     import numpy as np
