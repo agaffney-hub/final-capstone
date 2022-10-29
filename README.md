@@ -13,6 +13,14 @@
 - Dashboard: JS/html created, working rough draft 
 - Machine Learning: Supervised model for Injury Data using Random Forests, predictive models reaching 99% with only False positives, which is ideal for this analysis
 
+-- 
+## Update for 10/26/22
+- Presentation - most slides have been added and completed, just need to modify a few images to reflect the latest changes and results
+- Database - Database is functional and connected to machine learning analyses
+- GitHub - Mostly updated to reflect the recent findings. Will be modified in the next 2 days
+- Dashboard - Working website with most results integrated. Adding new tables from ML analysis
+- Machine Learning - Completed the Neural Network and RF analayses, further analyzing the Precision, a better indicator than accuracy for our model. Further developed neural network models to boost precision even further. 
+
 
 ---
 ## Topic and Reason
@@ -20,16 +28,6 @@
 In recent years, more concern has grown over sustained injuries that impact the athletes lives long after their athletic career ends. The NFL is looking to identify what changes should be made to minimize the risk of player injury, while not completely altering America's favorite pastime. There are several types of injuries that are incurred - there are gross physiological injuries such as knee, foot, and ankle injuries, and there are also more subtle injuries such as concussions, which can have a much longer-lasting impact on the players, occasionally leading to personality changes and unfortanately, even suicide. It's clear that changes need to be made to address these concerns, but the conflicting view is that the NFL is a multi-billion dollar industry, generating a revenue of over 17 billion dollars in 2021 alone. While changes need to be made, they only impact a fraction of the players. In order to minimize the risk of all players, it's important for the NFL to maintain most of the features of the game if they can modify only certain aspects in order to better ensure the medical safety of their players.
 
 The purpose of this analysis is to identify the aspects of the game that best predict the occurrence of injury, whether it is a short-term injury, long-term injury, or a traumatic brain injury. Unsupervised analysis is initially used to identify clusters in the data, and which predictors may have a greater influence on the injuries. Following this, supervised analysis is used to predict the conditions that can lead to such short-term, long-term, and traumatic brain injuries using the data provided by the NFL via 2 Kaggle Competitions. 
-
-
---- 
-## Communication Protocols
-
-We are using Trello to track our weekly deliverables on a Kanban board, with tasks assigned by Role as well as by person, so each individual knows their responsibilities per shared task. We are using a group chat feature on Slack to provide updates on anything that others may need to use in their own weekly roles. We have also agreed upon meeting on Fridays at 7 pm on video to discuss what we have done, what we have found, what needs to be done, and any challenges encountered. 
-
-At the beginning of each meeting, we will each get 3-5 minutes to do this prior to having a group discussion, to make sure that everyone has had an opportunity to speak and ask questions. At the end of each meeting, we will decide on each person's deliverables, which will then be added to the Trello Board. We have also agreed on providing updates on Slack every other day, just to confirm that group members are keeping up with their responsibilities or transferring them to someone else if necessary.  
-  
-All branches will be pushed to Main upon deliverable completion or on Wednesday, whichever comes first. 
 
 
 --- 

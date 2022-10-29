@@ -1,0 +1,42 @@
+For use in https://app.quickdatabasediagrams.com
+
+inj_df
+-
+playerkey int64 fk - play_df.playerkey
+gameid varchar fk - play_df.gameid
+playkey varchar fk - play_df.playkey
+bodypart varchar
+surface varchar  fk - play_df.fieldtype
+dm_m1 int
+dm_m2 int
+dm_m28 int
+dm_m42 int
+
+plyr_df
+-
+playkey varchar fk - play_df.playkey
+time float
+event varchar
+x float
+y float
+dir float
+dis float
+o float
+s float
+
+play_df
+-
+playerkey int pk
+gameid varchar pk
+playkey varchar pk
+rosterposition varchar
+playerday int
+playergame int
+stadiumtype varchar
+fieldtype varchar pk
+temperature int
+weather  varchar
+playtype  varchar
+playergameplay int
+position varchar
+positiongroup varchar
