@@ -1,0 +1,8 @@
+,Test,Model,Nodes,Epochs,Accuracy,Loss,Precision,Recall
+0,Is Injured,Neural Network,"[256, 128]",2,0.9952,0.014,0.9706,0.5412
+0,Severe Injury,Neural Network,"[256, 128]",2,0.9995,0.0013,0.9174,0.9537
+0,Injury Type 4-Classes,Neural Network,"[256, 128]",2,0.9988,0.002,0.9986,0.9987
+0,Foot Injury,Neural Network,"[256, 128]",2,1.0,0.0001,0.9953,0.993
+0,Ankle Injury,Neural Network,"[256, 128]",2,0.9995,0.0016,0.9559,0.9247
+0,Knee Injury,Neural Network,"[256, 128]",2,0.9996,0.0012,0.9959,0.9134
+0,Injury Duration 5-Classes,Neural Network,"[256, 128]",2,0.9989,0.0014,0.9988,0.9989

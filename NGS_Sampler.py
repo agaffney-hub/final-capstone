@@ -1,4 +1,4 @@
-def NGS_Cleaner(fraction=0.01, random=42):
+def ngs_sampler(fraction=0.01, random=42):
     #This function Appends and Cleans the NGS Data
     import pandas as pd
     import numpy as np
