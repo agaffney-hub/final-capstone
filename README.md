@@ -2,24 +2,18 @@
 ***Using Machine Learning and Data Analysis to Visualize and Identify Conditions Leading to Injuries in Football***
 #### *by* Amy Gaffney, Izzy Irazoque, Kevin Ytturalde, Vincent Fan, and Justin Papreck
 
----
-## Update for 10/19/22
-- Presentation: Information added to Google Slides with images for the Dashboard
-- Presentation: Visuals produced in both Python and Tableau from exploratory analysis and ML
-- Database: Integrated with the ML models using SQLAlchemy both for retrieval and storage of cleaned datasets for Tableau
-- Database: Joined 4 tables on SQL to be exported and used in the Punt Analytics analysis
-- GitHub: Was updated before all of the changes were lost. Will redo next week. 
-- Dashboard: Blueprint created - multiple page design, one for index, then Interactive Maps, Exploratory Graphs, Injury Stats, and ML
-- Dashboard: JS/html created, working rough draft 
-- Machine Learning: Supervised model for Injury Data using Random Forests, predictive models reaching 99% with only False positives, which is ideal for this analysis
-
--- 
-## Update for 10/26/22
-- Presentation - most slides have been added and completed, just need to modify a few images to reflect the latest changes and results
-- Database - Database is functional and connected to machine learning analyses
-- GitHub - Mostly updated to reflect the recent findings. Will be modified in the next 2 days
-- Dashboard - Working website with most results integrated. Adding new tables from ML analysis
-- Machine Learning - Completed the Neural Network and RF analayses, further analyzing the Precision, a better indicator than accuracy for our model. Further developed neural network models to boost precision even further. 
+--- 
+***Contents***
+1. Topic and Reason
+2. Data Source and Hypothesis 
+3. Database Structure and Utilization
+4. Exploratory Data Analysis
+5. Data Visualization via Tableau
+5. Machine Learning Design
+6. Machine Learning - Preliminary Findings
+7. Machine Learning - Final Models
+8. Results and Analysis
+9. Project Showcase - Webpage Design
 
 
 ---
@@ -27,7 +21,14 @@
 
 In recent years, more concern has grown over sustained injuries that impact the athletes lives long after their athletic career ends. The NFL is looking to identify what changes should be made to minimize the risk of player injury, while not completely altering America's favorite pastime. There are several types of injuries that are incurred - there are gross physiological injuries such as knee, foot, and ankle injuries, and there are also more subtle injuries such as concussions, which can have a much longer-lasting impact on the players, occasionally leading to personality changes and unfortanately, even suicide. It's clear that changes need to be made to address these concerns, but the conflicting view is that the NFL is a multi-billion dollar industry, generating a revenue of over 17 billion dollars in 2021 alone. While changes need to be made, they only impact a fraction of the players. In order to minimize the risk of all players, it's important for the NFL to maintain most of the features of the game if they can modify only certain aspects in order to better ensure the medical safety of their players.
 
-The purpose of this analysis is to identify the aspects of the game that best predict the occurrence of injury, whether it is a short-term injury, long-term injury, or a traumatic brain injury. Unsupervised analysis is initially used to identify clusters in the data, and which predictors may have a greater influence on the injuries. Following this, supervised analysis is used to predict the conditions that can lead to such short-term, long-term, and traumatic brain injuries using the data provided by the NFL via 2 Kaggle Competitions. 
+There are several questions we seek to answer: 
+- Are the lower-body injuries strictly associated with a combination or play, field type, weather, and temperature, or is the specific movement on the field required to precisely identify the occurrence of such injuries? 
+- Which features have the strongest correlation with both the lower-body injuries and the concussive injuries? 
+- Are there similar features with both the concussion injuries and lower-body injuries that could be addressed for overall safer play? 
+- Are there predictors to whether an injury is more or less likely to impair a player for over one month? 
+- Can we accurately and precisely predict which types of injuries are prone to occur given the set of features we have used to train a machine learning model? 
+
+To address the lower-body injuries, we applied Random Forest Machine Learning models and Neural Network models, as with these data we had a large control group of non-injured players. To address the concussive injuries, we ultimately used Principal Component Analysis (PCA) in conjunction with K-Means Clustering to determine the major groupings of the concussion injuries. Subsequently, we used a supervised Random Forest model to identify the primary features that separate the classifications. 
 
 
 --- 
@@ -39,9 +40,11 @@ The data sources are from two Kaggle Challenges:
 
 The first sets of data provide information on gross physiological injuries such as foot and knee injuries, whereas the second sets of data provide information regarding concussive injuries. It is likely that the conditions for each of these types of injuries are different, so this will involve a multi-step analysis to assess the parameters that have the highest impact on each type of injury and the severity of the injuries. 
 
-We hypothesize that there is a relationship between the field conditions, player position, time during the season, duration of play during the game, and location on the field that can predict the occurrence, type, and severity of lower body injury. We plan to show this with a predictive supervised machine learning model.
+We hypothesize that there is a relationship between the field conditions, player position, time during the season, duration of play during the game, location on the field, and the orientation the player is facing with respect to the direction of their movement (twist) that can predict the occurrence, type, and severity of lower body injury. 
 
-We also hypothesize that there is a relationship between the field conditions, player position, location, time within the season or game, as well as the impact of home/away games and the point distribution at the time of injury that correlates with the incidence of traumatic brain injuries. We will be using PCA and unsupervised machine learning with k-means and agglomerative clustering to analyze these relationships.  
+We also hypothesize that there is a relationship between the field conditions, player position, location, time within the season or game, the orientation the player is facing with respect to the direction of their movement (twist), as well as the impact of home/away games and the point distribution at the time of injury that correlates with the incidence of traumatic brain injuries. 
+
+We additionally anticipate that some of the features that lead to the lower-body injuries will overlap with those of the concussion injuries. 
 
 
 --- 
