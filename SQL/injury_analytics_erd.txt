@@ -1,0 +1,42 @@
+For use in https://app.quickdatabasediagrams.com
+
+playlist
+-
+playerkey int pk
+gameid varchar
+playkey varchar
+rosterposition varchar
+playerday int
+playergame int
+stadiumtype varchar
+fieldtype varchar
+temperature int
+weather  varchar
+playtype  varchar
+playergameplay int
+position varchar
+positiongroup varchar
+
+injuries
+-
+playerkey int64 fk - playlist.playerkey
+gameid varchar
+playkey varchar
+bodypart varchar
+surface varchar
+dm_m1 int
+dm_m2 int
+dm_m28 int
+dm_m42 int
+
+tracking
+-
+playkey varchar fk - playlist.playkey
+time float
+event varchar
+x float
+y float
+dir float
+dis float
+o float
+s float
