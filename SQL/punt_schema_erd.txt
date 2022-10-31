@@ -1,0 +1,68 @@
+For use in https://app.quickdatabasediagrams.com
+
+game_data
+-
+gamekey int pk
+season_year int
+season_type varchar
+week int
+game_date varchar
+game_day varchar
+game_site varchar
+start_time varchar
+home_team varchar
+hometeamcode varchar
+visit_team varchar
+visitteamcode varchar
+stadium varchar
+stadiumtype varchar
+turf varchar
+gameweather varchar
+tempearture float
+outdoorweather  varchar
+
+play_info
+-
+season_year int 
+season_type varchar 
+gamekey int fk - game_data.gamekey
+game_date varchar
+week int
+playid int pk 
+game_clock  varchar
+yardline  varchar
+quarter int
+play_type  varchar
+poss_team varchar
+home_team_visit_team varchar
+score_home_visiting  varchar
+playdescription  varchar
+
+play_player_role
+-
+season_year int
+gamekey int fk - play_info.gamekey fk - game_data.gamekey
+playid int fk - play_info.playid
+gsisid int pk
+prole varchar
+
+player_punt_data
+-
+gsisid int pk fk - play_player_role.gsisid
+p_number varchar
+position varchar
+
+ngs
+-
+season_year int
+gamekey int fk - game_data.gamekey fk - play_info.gamekey
+playid int fk - play_info.playid
+gsisid float pk fk - play_player_role.gsisid
+time varchar
+x float
+y float
+dis float
+o float
+dir float
+event varchar
+
