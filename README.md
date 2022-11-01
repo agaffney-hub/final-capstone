@@ -56,13 +56,41 @@ For this project, after acquiring the data, it was stored in a PostgreSQL databa
 #### The Injury Analytics Dataset:
 
 The Injury dataset was pulled directly from the SQL database using SQL Alchemy to pull the data from each table for processing, with the exception of the tracking data. The size of the tracking data was prohibitively large for sqlalchemy on a local server, with over 76 million rows. To import this data in the Python files, the data table was downloaded as a csv file from the sql server into a folder labeled NFL_Turf, prior to being read into the python file. The data were connected with the following Entity Relational Diagram (ERD). 
- - INSERT INJURY ERD
+<br><br>
+ 
+ ![Injury_DB](https://user-images.githubusercontent.com/33167541/199137667-6823248c-0ff1-4b82-a58f-9f979658a9ef.png)
+ <br><br>
 
 #### The Concussion Dataset: 
 For the Punt Analytics dataset, 4 tables were merged using PG Admin and used to create a new table called punt_analytics. This table was imported into the python files using SQL Alchemy as were done with the Injury tables. Also similar to the Injury data, the ngs table (tracking data) were too large to import using SQL Alchemy and again were downloaded locally and imported to python using pandas into a folder labeled NFL_Punt. Only the original data are represented in the ERD.     
-- SQL JOIN
-- INSERT Concussion ERD
 
+<br><br>
+![PuntAnalytics_DB](https://user-images.githubusercontent.com/33167541/199137679-8020e74f-1dcf-4f6e-b9ff-364244e785fc.png)
+<br><br>
+
+```
+CREATE TABLE punt_analytics AS
+SELECT
+	ppr.gamekey, 
+	ppr.playid, 
+	ppr.gsisid,
+	pi.season_type, 
+	pi.quarter, 
+	pi.score_home_visiting, 
+	gms.stadiumtype, 
+	gms.turf, 
+	gms.gameweather, 
+	gms.temperature, 
+	pp.p_position
+FROM play_player_role AS ppr
+INNER JOIN play_info AS pi
+	ON (ppr.gamekey = pi.gamekey AND  ppr.playid = pi.playid)
+LEFT JOIN game_data AS gms
+	ON (ppr.gamekey = gms.gamekey)
+LEFT JOIN player_punt_data AS pp
+	ON (ppr.gsisid = pp.gsisid);
+```
+ 
 #### Outputs: 
 To maintain the fidelity of the original data, result tables following data processing were saved into a new database called NFL_Injuries. The data saved were the Random_Forest_Outputs, Neural_Network_Outputs, Concussion_Analysis, and clean_play_injuries. These tables were pushed to the SQL server using SQL Alchemy. 
 
@@ -185,7 +213,8 @@ The original dataset contained 260,000 rows with only 77 injuries. Because of th
 **Determine whether an injury occurred**
 The original model achieved a 58% accuracy and worse precision. We further analyzed the feature importances. 
 
-**INSERT THE BAD RANDOM FOREST MATRIX** 
+![Prelim_RF](https://user-images.githubusercontent.com/33167541/199139830-d8ecd68f-b623-41be-92de-61376e859c32.png)
+
 
 The next analyses utilized a Complement Naive Bayes analysis; this type of Naive Bayes is more suitable for extremely imbalanced datasets. Similar to the Random Forest model, the results only provided a 58% accuracy. Likewise, an EasyEnsemble Boosting algorithm was tested again with similar results. From these analyses, we concluded that additional information would be necessary to further improve our models. The Random Forest and Complement Naive Bayes are shown below:
 
@@ -197,14 +226,19 @@ The next analyses utilized a Complement Naive Bayes analysis; this type of Naive
 Futher development of the dataset included the spatial parameters that should gave more predictive capability, indicating the great impact on the potential for injury. Using these data with random sampling the non-injury data were reduced to achieve a 100:1 distribution from the 3000:1 distribution we started with. Once the spatial data were added, this dataset expanded substantially, making a big impact on processing. Each of the Random Forest models was able to predict with 99% accuracy, and few to no false negatives: 
 
 **Was there a severe injury?**
+<br><br>
 ![RF_IsSevere](https://user-images.githubusercontent.com/33167541/196870375-b4c37c10-d2be-4226-a7e6-269a436f49cb.png)
+<br><br>
 
 **What body part was injured?** 
+<br><br>
 ![RF_InjuryType](https://user-images.githubusercontent.com/33167541/196870409-dc59d14f-e26d-4d09-a7a0-b78e7f48ac81.png)
+<br><br>
 
 **How long was the player out?** 
+<br><br>
 ![RF_InjuryDuration](https://user-images.githubusercontent.com/33167541/196870473-c93f4f22-a61b-40e5-82d9-7f2db68a9370.png)
-
+<br><br>
 
  From the outputs of the Machine Learning models and the exploratory analysis, graphics for the dashboard will be created using a combination of python generated plots and interactive features, which will be imbedded into a webpage using JavaScript, HTML, and CSS. 
 
@@ -216,14 +250,25 @@ The adaptations from the original model to the final models for the Injury Data 
 
 In the feature analysis, we confirmed that the strongest feature in the feature analysis was the number of days played, closely followed by the temperature, and the time of the play during the game. Other stronger predictors were the player's position and the location along the length of the field. 
 
+<br>
+![RF_IsInjured](https://user-images.githubusercontent.com/33167541/199139918-20a5c6de-9055-4a10-9be0-31d731e30dce.png)
+<br>
+
 **Was the injury severe?**
 The same process as above was followed, yielding a 99.97% accuracy and a lower, 90.35% precision. 
+<br><br>
+![RF_IsSevere](https://user-images.githubusercontent.com/33167541/199140001-d34df505-999a-42b1-bde9-6f7ab8c77472.png)
+<br><br>
 
 **What type of injury was predicted?**
 The overall accuracy of this model with 4 outputs was again 98.59%, but the precision started to really drop: 
 - Foot injury, 78.94% precision
 - Ankle injury, 42.61% precision
 - Knee injury, 27.25% precision
+
+<br><br>
+![RF_InjuryType](https://user-images.githubusercontent.com/33167541/199140053-1cbfb00d-22e5-47ab-bbdb-03d05758bcc4.png)
+<br><br>
 
 **What was the predicted duration of injury?**
 The overall accuracy remains high at 99.77%, but the precision continues to drop: 
@@ -232,11 +277,16 @@ The overall accuracy remains high at 99.77%, but the precision continues to drop
 - Under 4 weeks, 56.12% precision
 - Under 6 weeks, 63.75% precision
 
+<br><br>
+![RF_InjuryDuration](https://user-images.githubusercontent.com/33167541/199140090-656235a8-0c10-46ca-bc51-76e244cee6ba.png)
+<br><br>
+
 ### Final Random Forest Results Summarized
 The Random Forest Classifiers predicting multiple outcomes were more difficult to predict the accuracy and recall specifically, and they were not possible to evaluate like this for the neural network model. These results were summarized in the following table: 
  
-
-**INSERT RESULTS TABLE**
+<br><br>
+![RandomForestResults](https://user-images.githubusercontent.com/33167541/199140164-b025c02a-3616-4ccc-8c15-55eb2abdbf3f.png)
+<br><br>
 
 
 ---
@@ -259,19 +309,25 @@ The Tests Performed:
 - **What was the predicted duration of injury?**, a 5-class output
 
 The Results: 
-
-**INSERT RESULTS TABLE**
-
+<br>
+![NeuralNetworkResults](https://user-images.githubusercontent.com/33167541/199140459-d237b0e0-b02d-4153-bbd0-7435cb6b9777.png)
+<br>
 ---
 ## Unsupervised Concussion Analysis
 Similar to the Injury Analysis, the tables were merged including the tracking data, creating a very large dataset. In order to perform the clustering analysis, there are several ways to break the data into different clusters. The first approach was using Agglomerative Clustering, which required a size reduction to create a dendogram. The dendogram shows the highest break at two, followed by three clear clusters. 
 
 This analysis was performed with 3 clusters prior to breaking up into two sets using train_test_split for feature classification. A Balanced Random Forest Classifier was used with 100 estimators to determine which features have the highest correlation with the different classes. In this case, the highest correlation was the Twist, the difference between the orientation of the player and the direction of movement. 
 
+<br>
+![Dendogram_Concussion_Data](https://user-images.githubusercontent.com/33167541/199140744-346dc35f-a509-4bd3-9170-fb591dba6710.png)
+<br>
+
 Following the Agglomerative Clustering, we used PCA data extraction to reduce the dimensions to 3 components. Testing for the ideal number of clusters for K-Means analysis, we utilized an elbow curve, where there was a very distinct bend at k=2. The K-Means clustering was performed with 2 clusters. The K-Means analysis was plotted using hvplot as shown below: 
-
-**INSERT HV 3D PLOT**
-
+<br>
+![Elbow_Curve1](https://user-images.githubusercontent.com/33167541/199140785-effcfeeb-eb92-4869-91ec-1af541682aca.png)
+<br>
+![K-Means_Cluster](https://user-images.githubusercontent.com/33167541/199140821-8ea6a78a-d6f4-401a-ae3f-8ef2570485b3.png)
+<br>
 
 The highest predictor was, again, the Twist, with about 98% importance with the feature analysis. 
 
@@ -308,8 +364,10 @@ Our findings address the questions both within the datasets and between the data
   - The biggest difference between the duration of the injuries was the type of turf the games were played on
   - Games played on natural fields yielded a higher number of injuries that lasted under 7 days and up to one month
   - The majority of all incurred injuries that lasted longer than 4 weeks, most of which were longer than 6 weeks, were incurred on synthetic turf
-
-**INSERT FIELD TYPE VS DURATION**
+  
+<br>
+![Field_Type_Duration](https://user-images.githubusercontent.com/33167541/199140861-bce26c8a-6c05-4a97-9570-e199a82f1128.png)
+<br>
 
 5. Can we accurately and precisely predict which types of injuries are prone to occur given the set of features we have used to train a machine learning model? 
   - Yes, the Neural Network model was able to predict conditions leading to a Foot, Ankle, or Knee injury within 99.9% accuracy with 99.5% Precision
