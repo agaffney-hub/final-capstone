@@ -167,6 +167,8 @@ Several key factors have been clearly demonstrated with visualizations produced 
 - Visuals_2.ipynb
 - Visuals_3.ipynb
 
+During the creation of visuals both in Tableau and using MatplotLib, we were able to work through the datasets in search of any correlations that may lead to insight in factors associated with the injuries. 
+
 --- 
 # Machine Learning Design
 
