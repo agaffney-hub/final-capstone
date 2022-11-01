@@ -218,10 +218,7 @@ The original model achieved a 58% accuracy and worse precision. We further analy
 
 The next analyses utilized a Complement Naive Bayes analysis; this type of Naive Bayes is more suitable for extremely imbalanced datasets. Similar to the Random Forest model, the results only provided a 58% accuracy. Likewise, an EasyEnsemble Boosting algorithm was tested again with similar results. From these analyses, we concluded that additional information would be necessary to further improve our models. The Random Forest and Complement Naive Bayes are shown below:
 
-![RF_IsInjured](https://user-images.githubusercontent.com/33167541/196870316-d1da98c5-35fa-4d50-bf86-95e334c4e8a9.png)
-
-![Naive_Bayes_Confusion](https://user-images.githubusercontent.com/33167541/195505857-6ca4b12a-c335-4664-b2e4-28637a2862ac.png)
-
+![Naive_Bayes_Confusion](https://user-images.githubusercontent.com/33167541/199350852-23d4ee01-39bb-4f44-b925-35c97e8bccd6.png)
 
 Futher development of the dataset included the spatial parameters that should gave more predictive capability, indicating the great impact on the potential for injury. Using these data with random sampling the non-injury data were reduced to achieve a 100:1 distribution from the 3000:1 distribution we started with. Once the spatial data were added, this dataset expanded substantially, making a big impact on processing. Each of the Random Forest models was able to predict with 99% accuracy, and few to no false negatives: 
 
@@ -242,7 +239,7 @@ Futher development of the dataset included the spatial parameters that should ga
 
  From the outputs of the Machine Learning models and the exploratory analysis, graphics for the dashboard will be created using a combination of python generated plots and interactive features, which will be imbedded into a webpage using JavaScript, HTML, and CSS. 
 
-### Random Forest Adaptation
+## Random Forest Adaptation
 - Injury_Supervised_Random_Forest.ipynb
 
 **Was the player injured?**
@@ -250,12 +247,14 @@ The adaptations from the original model to the final models for the Injury Data 
 
 In the feature analysis, we confirmed that the strongest feature in the feature analysis was the number of days played, closely followed by the temperature, and the time of the play during the game. Other stronger predictors were the player's position and the location along the length of the field. 
 
-<br>
+<br><br>
 ![RF_IsInjured](https://user-images.githubusercontent.com/33167541/199139918-20a5c6de-9055-4a10-9be0-31d731e30dce.png)
-<br>
+<br><br>
+
 
 **Was the injury severe?**
 The same process as above was followed, yielding a 99.97% accuracy and a lower, 90.35% precision. 
+
 <br><br>
 ![RF_IsSevere](https://user-images.githubusercontent.com/33167541/199140001-d34df505-999a-42b1-bde9-6f7ab8c77472.png)
 <br><br>
@@ -318,9 +317,9 @@ Similar to the Injury Analysis, the tables were merged including the tracking da
 
 This analysis was performed with 3 clusters prior to breaking up into two sets using train_test_split for feature classification. A Balanced Random Forest Classifier was used with 100 estimators to determine which features have the highest correlation with the different classes. In this case, the highest correlation was the Twist, the difference between the orientation of the player and the direction of movement. 
 
-<br>
+<br><br>
 ![Dendogram_Concussion_Data](https://user-images.githubusercontent.com/33167541/199140744-346dc35f-a509-4bd3-9170-fb591dba6710.png)
-<br>
+<br><br>
 
 Following the Agglomerative Clustering, we used PCA data extraction to reduce the dimensions to 3 components. Testing for the ideal number of clusters for K-Means analysis, we utilized an elbow curve, where there was a very distinct bend at k=2. The K-Means clustering was performed with 2 clusters. The K-Means analysis was plotted using hvplot as shown below: 
 <br>
@@ -365,9 +364,10 @@ Our findings address the questions both within the datasets and between the data
   - Games played on natural fields yielded a higher number of injuries that lasted under 7 days and up to one month
   - The majority of all incurred injuries that lasted longer than 4 weeks, most of which were longer than 6 weeks, were incurred on synthetic turf
   
-<br>
+<br><br>
 ![Field_Type_Duration](https://user-images.githubusercontent.com/33167541/199140861-bce26c8a-6c05-4a97-9570-e199a82f1128.png)
-<br>
+
+<br><br>
 
 5. Can we accurately and precisely predict which types of injuries are prone to occur given the set of features we have used to train a machine learning model? 
   - Yes, the Neural Network model was able to predict conditions leading to a Foot, Ankle, or Knee injury within 99.9% accuracy with 99.5% Precision
@@ -406,6 +406,8 @@ To connect the Tableau page to our site, embedcodeing was applied from the web v
 
 
 <img width="951" alt="Screen Shot 2022-10-19 at 9 39 28 PM" src="https://user-images.githubusercontent.com/106010498/196858364-64e12e38-aeaf-49fa-8405-0356280c930d.png">
+
+*THIS CODE IS BROKEN*
 <img width="1265" alt="Screen Shot 2022-10-19 at 9 39 37 PM" src="https://user-images.githubusercontent.com/106010498/196858373-dbfd6b41-0445-4ba3-ae1d-76351741dfab.png">
 
 
