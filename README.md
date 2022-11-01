@@ -167,7 +167,47 @@ Several key factors have been clearly demonstrated with visualizations produced 
 - Visuals_2.ipynb
 - Visuals_3.ipynb
 
-During the creation of visuals both in Tableau and using MatplotLib, we were able to work through the datasets in search of any correlations that may lead to insight in factors associated with the injuries. 
+During the creation of visuals both in Tableau and using MatplotLib, we were able to work through the datasets in search of any correlations that may lead to insight in factors associated with the injuries: 
+- Which parts of the field were more prone to the different types of injuries
+<br><br>
+![End_of_play](https://user-images.githubusercontent.com/33167541/199360777-272c66fa-ea33-4387-9939-e6f07b6518ac.png)
+<br><br>
+
+- Where on the field different certain defensive and offensive positions were sustaining more injuries and where they were least likely to occur
+
+<br><br>
+![Linebacker_Knee](https://user-images.githubusercontent.com/33167541/199360875-9f38905e-2923-40a8-87d1-687d4a4798cc.png)
+<br><br>
+![Runningback_ankle](https://user-images.githubusercontent.com/33167541/199360923-29c9bf65-2ff7-441a-bf90-ed3dd282d220.png)
+<br><br>
+<img width="918" alt="FieldInjuryPlaysTab" src="https://user-images.githubusercontent.com/33167541/199361022-8a96f2de-ab6d-4130-a66b-9cfd2ecc3478.png">
+<br><br>
+
+- We noticed that concussions in punt plays alone vastly outnumbered the lower-body injuries in a 2 season period
+- The temperatures with the highest number of injuries were 68 and 70 degrees - though it should be noted that indoor fields are kept at these temperatures, so it may not be a valid predictor of injury
+
+<br><br>
+![Injury_Temp](https://user-images.githubusercontent.com/33167541/199361377-3ee8b130-0c13-49f3-9dc4-48ca3d3b4cd1.png)
+<br><br>
+
+- Foot injuries were the least frequently occurring injuries from the datasets
+
+<br><br>
+<img width="566" alt="InjuryChartsTab" src="https://user-images.githubusercontent.com/33167541/199361450-ebce037a-ab18-4702-8b60-1924fae540e6.png">
+<br><br>
+
+- There was a correlation with severe injuries, resulting in over 4 week recovery and synthetic turf
+
+<br><br>
+![Field_Type_Duration](https://user-images.githubusercontent.com/33167541/199361494-c36dab8f-4042-4af1-ae88-4a3b2ebe623d.png)
+<br><br>
+
+Implementing the interactive models using Tableau allows a user to select from different parameters (position, injury type, etc.) and see the movement of a player on the field to give better depth in understanding of how the injury was sustained. 
+
+In the future, we would like to create a visualization to the the direction of movement and player orientation with vectors throughtout the play to show the player's path prior to concussion - as the twist was the primary factor that correlated with the learning model.
+
+
+
 
 --- 
 # Machine Learning Design
