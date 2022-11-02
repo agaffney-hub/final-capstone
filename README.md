@@ -463,4 +463,6 @@ To connect the Tableau page to our site, embedcodeing was applied from the web v
 The stakeholder presentation is available on Google Slides: 
 [NFL Injury Analysis](https://docs.google.com/presentation/d/1JuRKtG8ZdwiY1gHwosXbu1rs_UrsjU8sO4iqMHOnGEc/edit?usp=sharing)
 
-**INSERT PRESENTATION SLIDE1 HERE**
+![PresentationSlide1](https://user-images.githubusercontent.com/33167541/199598351-b3c81bf9-d9fb-4ec1-8e86-c210faa29759.png)
+
+
