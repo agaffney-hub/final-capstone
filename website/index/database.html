@@ -26,41 +26,92 @@
 <!-- Links (sit on top) -->
 <div class="w3-top">
     <div class="w3-row w3-large w3-light-grey">
-      <div class="w3-col s12">
-        <a href="#" class="w3-button w3-block">Database</a>
+      <div class="w3-col s3">
+        <a href="../index/index.html" class="w3-button w3-block">Home</a>
       </div>
-      
+      <!-- <div class="w3-col s3">
+        <a href="../index/database.html" class="w3-button w3-block">Data Sources and Database</a>
+      </div> -->
+      <div class="w3-col s3">
+        <a href="../index/tableau.html" class="w3-button w3-block">Interactive Analysis</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="../index/machinelearning.html" class="w3-button w3-block">Machine Learning</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="../index/presentation.html" class="w3-button w3-block">Presentation</a>
+      </div>
+    
 
   </div>
 </div>
 
 <div class="w3-row w3-container" id="database">
   <div class="w3-center w3-padding-64">
-    <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16">Database processing</span>
+    <span class="w3-xxlarge w3-bottombar w3-border-dark-grey w3-padding-16">Database Processing</span>
 
 
 
-    <h3 class="w3-xlarge w3-padding-16">Database Structure and Utilization</h3>
-    
-
+    <h3 class="w3-xlarge w3-padding-16">The Data Sources</h3>
   
-  <h4 class="w3-bottombar">For this project, after acquiring the data, it was stored in a PostgreSQL database. Each of the databases were organized as follows:</h4>
+        <h3 class="w3-xlarge w3-padding-16">Our Data was acquired from two NFL Kaggle Challenges:</h3>
+        <h3 class="w3-padding-8"><a href="https://www.kaggle.com/competitions/nfl-playing-surface-analytics/data" style="
+                background-color: #1b1265;
+                color: white;
+                padding: 15px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                ">
+        
+            NFL 1st and Future - Analytics
+        
+          </a></h3>
+        <h3 class="w3-padding-8" ><a href="https://www.kaggle.com/competitions/NFL-Punt-Analytics-Competition/data" style="
+                background-color: #1b1265;
+                color: white;
+                padding: 15px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                ">
+        
+            NFL Punt Analytics Competition</a></h3>
+        
+        <p> &emsp; </p>
+        <h4 class="w3-bottombar w3-margin">The first sets of data provide information on gross physiological injuries such as foot and
+          knee injuries,
+          whereas the second sets of data provide information regarding concussive injuries. It is likely that the conditions
+          for
+          each of these types of injuries are different, so this will involve a multi-step analysis to assess the parameters
+          that
+          have the highest impact on each type of injury and the severity of the injuries.</h4>
   
-  <h3 class="w3-xlarge w3-padding-16">The Injury Analytics Dataset:</h3>
+  <h3 class="w3-xlarge w3-padding-16">The Injury Analytics Dataset</h3>
 
-  <h4 class="w3-bottombar">The Injury dataset was pulled directly from the SQL database using SQL Alchemy to pull the data from each table for processing, with the exception of the tracking data. The size of the tracking data was prohibitively large for sqlalchemy on a local server, with over 76 million rows. To import this data in the Python files, the data table was downloaded as a csv file from the sql server into a folder labeled NFL_Turf, prior to being read into the python file. The data were connected with the following Entity Relational Diagram (ERD). 
+  <h4 class="w3-margin">The Injury Analytics dataset comes from the 1st and Future Analytics source, which track lower-body 
+    injuries across 2 seasons. These data were stored in a PostgreSQL database, using SQL Alchemy to pull the data from each table for processing, 
+    with the exception of the tracking data. The size of the tracking data was prohibitively large for SQL Alchemy on a local server, 
+    with over 76 million rows. To import this data in the Python files, the data table was downloaded as a csv file from the 
+    SQL server into a folder labeled NFL_Turf, prior to being read into the Python file. The data were connected with the following Entity Relational Diagram (ERD). 
   </h4>
-  <img src="../static/images/database1.jpg" style="width:100%">
-  <h3 class="w3-xlarge w3-padding-16">The Concussion Dataset:</h3>
+  <img src="../static/images/database1.png" style="width:30%">
+  <h3 class="w3-xlarge w3-padding-16 w3-topbar">The Concussion Dataset:</h3>
 
-  <h4 class="w3-bottombar">For the Punt Analytics dataset, 4 tables were merged using PG Admin and used to create a new table called punt_analytics. This table was imported into the python files using SQL Alchemy as were done with the Injury tables. Also similar to the Injury data, the ngs table (tracking data) were too large to import using SQL Alchemy and again were downloaded locally and imported to python using pandas into a folder labeled NFL_Punt. Only the original data are represented in the ERD.
+  <h4 class="w3-margin">The Punt Analytics dataset observed player conscussions over 2 seasons. We used 5 of the complete datasets
+     available from the source. Upon storage in our database, 4 tables were merged using PG Admin and used to create a new table called punt_analytics. This 
+    table was imported into the Python files using SQL Alchemy as were done with the Injury tables. Also similar to the Injury data, 
+    the ngs table (tracking data) was too large to import using SQL Alchemy and again were downloaded locally and imported to Python 
+    using Pandas into a folder labeled NFL_Punt. Only the original data are represented in the ERD.
   </h4>
-  <img src="../static/images/database2.jpg" style="width:100%">
-  <img src="../static/images/database3.jpg" style="width:100%">
+  <img src="../static/images/database2.jpg" style="width:50%">
+  <img src="../static/images/database3.jpg" style="width:45%">
 
-  <h3 class="w3-xlarge w3-padding-16">Outputs:</h3>
+  <h3 class="w3-xlarge w3-padding-16 w3-topbar">Cleaned and Exported Dataframes</h3>
 
-  <h4 class="w3-bottombar">To maintain the fidelity of the original data, result tables following data processing were saved into a new database called NFL_Injuries. The data saved were the Random_Forest_Outputs, Neural_Network_Outputs, Concussion_Analysis, and clean_play_injuries. These tables were pushed to the SQL server using SQL Alchemy.
+  <h4 class="w3-margin">To maintain the fidelity of the original data, processed data from both of the data sources were saved into a new 
+    database called NFL_Injuries. The data saved were the Random_Forest_Outputs, Neural_Network_Outputs, Concussion_Analysis, and clean_play_injuries. 
+    These tables were pushed to the SQL server using SQL Alchemy.
   </h4>
 
 
@@ -76,11 +127,7 @@
 
 <!-- Footer -->
 
-<footer class="w3-container w3-padding-32 w3-light-grey w3-center">
-  
-  <a href="../index/index.html" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>Back to Home</a>
-  
-  
+<footer class="w3-container w3-padding-32 w3-light-grey w3-center">  
 </footer>
 
 
