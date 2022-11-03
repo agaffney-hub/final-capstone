@@ -429,7 +429,7 @@ Finally, our concussion analysis was unsupervised because of a lack of control d
 
 To communicate our findings, we have designed a webpage using Javascript, CSS and HTML. Our interactive dashboard enables the user to select injuries by parameters, such as field type, surface type, location, and duration of play during the game. Our webpage allows the user to explore the different features of our exploratory study of injuries in the NFL. The main interactive elements of our page are connected to the Tableau link, where the user can explore the different charts, making the selections they desire to see, along with a description of the results that we've extrapolated from these findings. 
 The machine learning page presents the findings of the final models for the Injury Analysis as well as the Concussion Analysis with images from the Unsupervised analyses as well as tables presenting the Accuracy, Precision, and Recall from the Final Supervised models. The presentation page links to the Google Slides Presentaiton that functioned as our Stakeholder Presentation. 
-  The database link describes the data, its storage, and how it was used in the analysis???? 
+  The database link describes the data, its storage, and how it was used in the analysis
 
 
 <div class='tableauPlaceholder' id='viz1666138420638' style='position: relative'><noscript><a href='#'><img alt='NFL Injury Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NF&#47;NFLInjuryData_16660655174710&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='NFLInjuryData_16660655174710&#47;Story1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;NF&#47;NFLInjuryData_16660655174710&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                
@@ -437,26 +437,9 @@ The machine learning page presents the findings of the final models for the Inju
 <br><br><br>
 
 ### Home Page
+website link: https://ljvince.github.io/final-capstone/website/index.html
 
-<img width="1271" alt="Screen Shot 2022-10-19 at 9 06 04 PM" src="https://user-images.githubusercontent.com/106010498/196854243-487f5eed-076e-4925-b1de-2356ec8b6c69.png">
-<img width="1274" alt="Screen Shot 2022-10-19 at 9 06 18 PM" src="https://user-images.githubusercontent.com/106010498/196854251-3f3c573b-4854-48c7-acb9-2d86422de40c.png">
-<img width="1256" alt="Screen Shot 2022-10-19 at 9 22 01 PM" src="https://user-images.githubusercontent.com/106010498/196855898-0732c4d4-690a-413d-8734-38ce6316b406.png">
-
-
-### Interactive Elements via Tableau
-To connect the Tableau page to our site, embedcodeing was applied from the web version tableau and added it to the webpage. 
-
-
-<img width="951" alt="Screen Shot 2022-10-19 at 9 39 28 PM" src="https://user-images.githubusercontent.com/106010498/196858364-64e12e38-aeaf-49fa-8405-0356280c930d.png">
-
-*THIS CODE IS BROKEN*
-<img width="1265" alt="Screen Shot 2022-10-19 at 9 39 37 PM" src="https://user-images.githubusercontent.com/106010498/196858373-dbfd6b41-0445-4ba3-ae1d-76351741dfab.png">
-
-
-### Machine Learning
-
-
-### Database
+![ljvince github io](https://user-images.githubusercontent.com/106010498/199627405-8a597f12-74a5-4fa9-8074-ce27c5074e88.png)
 
 
 ### Presentation
