@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>NFL Injury Report/Machinelearning</title>
+        <title>NFL Injury Report/Machine Learning</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
@@ -16,9 +16,6 @@
         .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
         </style>
 
-        <div>
-             <img src="/Users/fanfan/Desktop/final-capstone/webpage/static/images/NFL_Injury_Report.jpg" alt="Jane" width="1728" height="400" >
-        <p></p> </div>
     </head>
 
 <body>
@@ -26,13 +23,443 @@
 <!-- Links (sit on top) -->
 <div class="w3-top">
     <div class="w3-row w3-large w3-light-grey">
-      <div class="w3-col s12">
-        <a href="#" class="w3-button w3-block">Machinelearning</a>
+      <div class="w3-col s3">
+        <a href="../index/index.html" class="w3-button w3-block">Home</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="../index/database.html" class="w3-button w3-block">Data Sources and Database</a>
+      </div>
+      <div class="w3-col s3">
+        <a href="../index/tableau.html" class="w3-button w3-block">Interactive Analysis</a>
+      </div>
+      <!-- <div class="w3-col s3">
+        <a href="../index/machinelearning.html" class="w3-button w3-block">Machine Learning</a>
+      </div> -->
+      <div class="w3-col s3">
+        <a href="../index/presentation.html" class="w3-button w3-block">Presentation</a>
       </div>
       
 
   </div>
 </div>
+
+
+<!-- Images and Code -->
+<div class="w3-center w3-padding-64">
+
+
+
+  <span class="w3-xxlarge  w3-border-dark-grey w3-padding-16">Machine Learning Design</span>
+
+
+
+
+  <h4>The Machine Learning Design was broken up into two parts, as the Lower-Body Injury data and Concussion data
+    presented different aspects that only allowed for different types of machine learning analyses. The final Model
+    Designs were as follows:
+
+  </h4>
+  <h4 class="w3-bottombar">
+
+  </h4>
+  <h3 class=>Lower-Body Injury Analysis
+
+    </h4>
+    <h4 class=>1.Neural Network - Deep Learning with 2 hidden layers of 256 nodes and 128 nodes
+
+    </h4>
+    <h5 class="w3-bottombar">The lower-body injury analysis was a very unbalanced dataset containing a small number of
+      injuries with a large set of plays without injuries. The data without injuries functioned as a control group used
+      for classification in a supervised analysis. The initial model used Random Forests, as it produced a very high
+      accuracy. However, the precision was the more important consideration with the imbalanced data, and the neural
+      network model provided a much higher precision than did the ensemble learning.
+
+
+      </h4>
+      <h3 class=>Concussion Analysis
+
+        </h4>
+        <h4 class=>
+          1.PCA feature extraction
+
+
+
+        </h4>
+        <h4 class=>
+          2.K-Means Clustering (Unsupervised)
+        </h4>
+        <h4 class=>
+          3.Random Forest Feature Analysis
+        </h4>
+        <h5 class="w3-bottombar">
+          All instances of the concussion data were incidents with concussions, preventing us from using a supervised
+          model. The best results were achieved with a PCA feature extraction, reducing the features to 3 dimensions,
+          more ideal for visualization. Following the feature extraction, K-Means clustering was used to classify the
+          data into the groups. Both a dendogram and an elbow curve were used to determine the number of cluseters to
+          use. Because of the ambiguity incurred with the feature extraction, we used a Random Forest classifier to
+          determine which features had the strongest association with each of the outputs.
+
+          </h4>
+
+
+
+
+
+          <span class="w3-xxlarge  w3-border-dark-grey w3-padding-16">Machine Learning Preliminary Findings</span>
+
+          <h3>
+
+
+            Unsupervised Learning
+
+
+
+            </h4>
+            <h5>
+              We initially used unsupervised learning to see what features would lead to clusters with the Injury data.
+              K-Means Clustering was used to perform the unsupervised analysis, using a PCA feature extraction to group
+              the features to 3, for the ability to create a 3D visualization. The initial model analyzed all of the
+              data, including all plays without injuries and those with injuries. To determine the ideal number of k
+              classifiers, we employed an elbow-curve analysis. There was a strong curve delineation at k=2, so this was
+              performed and shown below.
+
+
+              </h4>
+              <img src="../static/images/machine learning/1.png" style="width:100%">
+              <img src="../static/images/machine learning/2.png" style="width:100%">
+              <h4 class="w3-bottombar">
+
+
+
+                Unfortuantely, the injuries were not successfully classified, and the differences between the groups
+                largely had to do with the number of games played. The next model removed all of the non-injury data
+                from the dataset, to try to isolate the features that had the greatest influence on these data. The main
+                joints occurred at k=3 and k=6. The grouping with k=3 left one group with very ambiguous correlations,
+                so the results from the k=6 analysis are reported below.
+
+
+
+
+              </h4>
+              <img src="../static/images/machine learning/3.png" style="width:100%">
+              <h3>Supervised Learning
+
+                </h4>
+                <h4>
+                  The following files are a composite of those in the Preliminary Models, and are themselves contained
+                  in Machine_Learning_Files:
+
+
+
+
+                </h4>
+                <h4>Preliminary_Injury_Supervised_Learning.ipynb
+
+                </h4>
+                <h4>Preliminary_Injury_Unsupervised_Learning.ipynb
+
+                </h4>
+                <h4>
+                  These initially analyses did not incorporate tracking information. The goal was to determine whether
+                  the features not including the tracking data could provide a model with high enough accuracy and
+                  precision.
+                </h4>
+                <h4>
+                  Due to the nature of the Injury Dataset being extremely imbalanced, we used the Balanced Random Forest
+                  Classifier from the imbalanced learn library. In preparing the data for processing, the positions were
+                  encoded in a single column by numbers, as described above, however the plays were encoded with
+                  OneHotEncoder, giving us 3 columns for each of the plays.
+                </h4>
+                <h4>
+                  The original dataset contained 260,000 rows with only 77 injuries. Because of this large difference,
+                  we tried several approaches, including Undersampling and SMOTEENN, but ultimately, we just split the
+                  data using train_test_split() from the scikit learn library both with and without stratification.
+                </h4>
+                <h4>
+                  Determine whether an injury occurred The original model achieved a 58% accuracy and worse precision.
+                  We further analyzed the feature importances.
+                </h4>
+                <img src="../static/images/machine learning/4.png" style="width:100%">
+                <h4>
+
+
+                  The next analyses utilized a Complement Naive Bayes analysis; this type of Naive Bayes is more
+                  suitable for extremely imbalanced datasets. Similar to the Random Forest model, the results only
+                  provided a 58% accuracy. Likewise, an EasyEnsemble Boosting algorithm was tested again with similar
+                  results. From these analyses, we concluded that additional information would be necessary to further
+                  improve our models. The Random Forest and Complement Naive Bayes are shown below:
+                </h4>
+                <img src="../static/images/machine learning/5.png" style="width:100%">
+
+                <h4>
+                  Futher development of the dataset included the spatial parameters that should gave more predictive
+                  capability, indicating the great impact on the potential for injury. Using these data with random
+                  sampling the non-injury data were reduced to achieve a 100:1 distribution from the 3000:1 distribution
+                  we started with. Once the spatial data were added, this dataset expanded substantially, making a big
+                  impact on processing. Each of the Random Forest models was able to predict with 99% accuracy, and few
+                  to no false negatives:
+                </h4>
+                <h3>
+                  Was there a severe injury?
+                  </h4>
+                  <img src="../static/images/machine learning/6.png" style="width:100%">
+
+                  <h3>
+
+                    What body part was injured?
+                    </h4>
+                    <img src="../static/images/machine learning/7.png" style="width:100%">
+
+                    <h3>
+
+                      How long was the player out?
+                      </h4>
+                      <img src="../static/images/machine learning/8.png" style="width:100%">
+
+                      <h4 class="w3-bottombar">
+
+                        From the outputs of the Machine Learning models and the exploratory analysis, graphics for the
+                        dashboard will be created using a combination of python generated plots and interactive
+                        features, which will be imbedded into a webpage using JavaScript, HTML, and CSS.
+                      </h4>
+                      <h3>
+
+
+
+                        Random Forest Adaptation
+                        </h4>
+                        <h4>
+                          Injury_Supervised_Random_Forest.ipynb
+
+                        </h4>
+                        <h4>
+                          Was the player injured? The adaptations from the original model to the final models for the
+                          Injury Data was the addition and cleaning of the tracking data. With the addition of the
+                          tracking information, the Balanced Random Forest Classifier with 10 estimators provided a
+                          99.96% accuracy, a much higher accuracy than was achieved with the any of the models not
+                          including the tracking data. With the addition of the tracking data, the number of rows
+                          increased to several thousand. In addition to the 99.97% accuracy, this model yielded under 5
+                          false negatives, and 145 false positives from the dataset including 550,000 true negatives and
+                          5500 true positives.
+                        </h4>
+                        <h4>
+                          In the feature analysis, we confirmed that the strongest feature in the feature analysis was
+                          the number of days played, closely followed by the temperature, and the time of the play
+                          during the game. Other stronger predictors were the player's position and the location along
+                          the length of the field.
+                        </h4>
+
+                        <img src="../static/images/machine learning/9.png" style="width:100%">
+                        <h3>
+
+
+
+
+                          Was the injury severe? The same process as above was followed, yielding a 99.97% accuracy and
+                          a lower, 90.35% precision.
+                          </h4>
+
+                          <img src="../static/images/machine learning/10.png" style="width:100%">
+                          <h4>
+
+
+
+
+                          </h4>
+                          <h4>
+                            What type of injury was predicted? The overall accuracy of this model with 4 outputs was
+                            again 98.59%, but the precision started to really drop:
+                          </h4>
+                          <h4>
+                            Foot injury, 78.94% precision
+                          </h4>
+                          <h4>
+                            Ankle injury, 42.61% precision
+                          </h4>
+                          <h4>
+                            Knee injury, 27.25% precision
+                          </h4>
+
+                          <img src="../static/images/machine learning/11.png" style="width:100%">
+                          <h4>
+
+                          </h4>
+                          <h4>
+
+                            What was the predicted duration of injury? The overall accuracy remains high at 99.77%, but
+                            the precision continues to drop:
+                          </h4>
+                          <h4>
+                            Under 1 day, 60.00% precision
+                          </h4>
+                          <h4>
+                            Under 1 week, 35.67% precision
+                          </h4>
+                          <h4>
+                            Under 4 weeks, 56.12% precision
+                          </h4>
+                          <h4 class="w3-bottombar">
+                            Under 6 weeks, 63.75% precision
+                          </h4>
+                          <img src="../static/images/machine learning/12.png" style="width:100%">
+
+                          <h3>
+
+
+
+
+                            Final Random Forest Results Summarized
+                            </h4>
+                            <h4 class="w3-bottombar">
+                              The Random Forest Classifiers predicting multiple outcomes were more difficult to predict
+                              the accuracy and recall specifically, and they were not possible to evaluate like this for
+                              the neural network model. These results were summarized in the following table:
+                            </h4>
+                            <img src="../static/images/machine learning/13.png" style="width:100%">
+
+
+
+
+
+
+
+
+
+
+
+                            <span class="w3-xxlarge  w3-border-dark-grey w3-padding-16"> Machine Learning - Working
+                              Models:</span>
+
+
+
+                            <h3>
+                              Deep Learning/Neural Network Analysis
+                              </h4>
+                              <h4>
+                                In the final model, there were some changes made from the preliminary models:
+                              </h4>
+                              <h4>
+                                The positive injury data were removed, a random sampler was used to reduce the
+                                non-injury data, reducing the control data such that there would be a 99:1 balance of
+                                data. The injuries were then added back to the dataset
+                              </h4>
+                              <h4>
+                                When splitting the data in the test_train_split, the data was stratified based on the
+                                injury data
+                              </h4>
+                              <h4>
+                                The data were scaled using StandardScaler before creating the neural network model
+                              </h4>
+                              <h4>
+                                Several different parameter configurations were tested with the neural networks,
+                                starting with the lowest complexity - a single layer with increasing numbers of nodes -
+                                to higher complexity - two layers with increasing the numbers of nodes in either layer.
+                                The final model used 256 nodes in the first hidden layer and 128 nodes in the second
+                                hidden layer of a sequential model. The hidden layers each used Relu activation and a
+                                Sigmoid output. Compiling used a binary crossentropy loss model because each of the
+                                outputs were binary outcomes, as opposed to a categorical crossentropy model. Though
+                                there were categorical ouputs in some of the models, each of the outputs remained a
+                                binary classification. The optimizer used was an adam optimizer. In order to compare the
+                                outcomes of this model with the Random Forest model, the metrics tracked were accuracy,
+                                precision and recall.
+                              </h4>
+                              <h4>
+
+                                The Tests Performed:
+                              </h4>
+                              <h4>
+                                Was the player injured?
+                              </h4>
+                              <h4>
+                                Was the injury severe?
+                              </h4>
+                              <h4>
+                                What type of injury was predicted?, a 4-class output
+                              </h4>
+                              <h4>
+                                Was the injury a foot injury?
+                              </h4>
+                              <h4>
+                                Was the injury an ankle injury?
+                              </h4>
+                              <h4>
+                                Was the injury a knee injury?
+                              </h4>
+                              <h4>
+                                What was the predicted duration of injury?, a 5-class output
+                              </h4>
+                              <h4>
+                                The Results:
+                              </h4>
+                              <img src="../static/images/machine learning/14.png" style="width:100%">
+
+                              <h4 class="w3-bottombar">
+                                NeuralNetworkResults
+                              </h4>
+                              <h3>
+
+                                Unsupervised Concussion Analysis
+                                </h4>
+                                <h4>
+
+                                  Similar to the Injury Analysis, the tables were merged including the tracking data,
+                                  creating a very large dataset. In order to perform the clustering analysis, there are
+                                  several ways to break the data into different clusters. The first approach was using
+                                  Agglomerative Clustering, which required a size reduction to create a dendogram. The
+                                  dendogram shows the highest break at two, followed by three clear clusters.
+                                </h4>
+                                <h4>
+                                  This analysis was performed with 3 clusters prior to breaking up into two sets using
+                                  train_test_split for feature classification. A Balanced Random Forest Classifier was
+                                  used with 100 estimators to determine which features have the highest correlation with
+                                  the different classes. In this case, the highest correlation was the Twist, the
+                                  difference between the orientation of the player and the direction of movement.
+                                </h4>
+                                <img src="../static/images/machine learning/15.png" style="width:100%">
+
+                                <h4>
+
+
+                                  Dendogram_Concussion_Data
+                                </h4>
+                                <h4>
+
+
+                                  Following the Agglomerative Clustering, we used PCA data extraction to reduce the
+                                  dimensions to 3 components. Testing for the ideal number of clusters for K-Means
+                                  analysis, we utilized an elbow curve, where there was a very distinct bend at k=2. The
+                                  K-Means clustering was performed with 2 clusters. The K-Means analysis was plotted
+                                  using hvplot as shown below:
+                                </h4>
+                                <img src="../static/images/machine learning/16.png" style="width:100%">
+                                <img src="../static/images/machine learning/17.png" style="width:100%">
+
+                                <h4>
+                                  Elbow_Curve1
+                                </h4>
+                                <h4>
+                                  K-Means_Cluster
+                                </h4>
+                                <h4>
+
+                                  The highest predictor was, again, the Twist, with about 98% importance with the
+                                  feature analysis.
+                                </h4>
+                                <h4 class="w3-bottombar">
+
+
+
+
+
+
+
+
+
+                                  <img src="../static/images/machine learning/1.png" style="width:100%">
+
+
+
+
 
 <!-- Footer -->
 
